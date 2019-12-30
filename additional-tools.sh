@@ -28,7 +28,22 @@ sudo npm install -g npm
 # sudo gem install haste
 
 # Install Docker
-curl -fsSL https://get.docker.com | sudo sh
+# curl -fsSL https://get.docker.com | sudo sh
+$APT_GET update
+$APT_GET install -qq \
+	apt-transport-https \
+	ca-certificates \
+	curl \
+	gnupg-agent \
+	software-properties-common
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo add-apt-repository -y \
+   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+   $([ $(lsb_release -cs) = eoan ] && echo disco || lsb_release -cs) \
+   stable"
+$APT_GET update
+$APT_GET install -qq docker-ce docker-ce-cli containerd.io
+
 sudo usermod -aG docker vagrant
 newgrp docker
 
