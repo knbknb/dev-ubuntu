@@ -6,10 +6,10 @@ set -euxo pipefail
 gsettings set org.gnome.desktop.session idle-delay 0
 
 # Turn on dark mode
-gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'
+# gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'
 
 # Turn on home icon on desktop
-gsettings set org.gnome.nautilus.desktop home-icon-visible true
+# gsettings set org.gnome.nautilus.desktop home-icon-visible true
 
 # Enable login shell (why isn't enabled by default? Without it the folder)
 # $HOME/.local/bin doesn't get added to $PATH, because ~/.profile isn't read.
