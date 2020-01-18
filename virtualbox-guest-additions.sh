@@ -4,7 +4,7 @@ set -euxo pipefail
 APT_GET="sudo DEBIAN_FRONTEND=noninteractive apt-get"
 
 # Remove old versions
-# $APT_GET remove -y virtualbox-guest-utils virtualbox-guest-x11 # We don't need in hashicorp/bionic64
+$APT_GET remove -qq virtualbox-guest-utils virtualbox-guest-x11 # We don't need in hashicorp/bionic64
 
 # Install dependencies
 $APT_GET update
