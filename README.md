@@ -20,7 +20,7 @@ This box is available on [Vagrant Cloud](https://app.vagrantup.com/felipecassior
 
 ## **Automated Build**
 
-This box is automatically built by [Travis](https://travis-ci.com/felipecassiors/ubuntu1804-4dev). Every new commit triggers a new build. He bumps the version and pushes a new tag on the repository, as long as it also releases a new version on Vagrant Cloud. The loop also tests the new deployed box before releasing it by running `vagrant up` of that version. If it fails, it doesn't release the version and deletes it. For more details check the [`.travis.yml`](.travis.yml) and also the [scripts/deploy.sh](scripts/deploy.sh).
+This box is automatically built by [Travis](https://travis-ci.com/felipecassiors/ubuntu1804-4dev). Every new commit triggers a new build. He bumps the version and pushes a new tag on the repository, as long as it also releases a new version on Vagrant Cloud. The loop also tests the new deployed box before releasing it by running `vagrant up` of that version. If it fails, it doesn't release the version and deletes it. For more details check the [`.travis.yml`](.travis.yml) and also the [ci/deploy.sh](ci/deploy.sh).
 
 The whole process is:
 
@@ -67,7 +67,7 @@ vagrant package
 
 ### Deploy
 
-If you want to deploy it in your Vagrant Cloud, you can use the [`ci/deploy.sh`](scripts/deploy.sh). It needs the `VAGRANT_CLOUD_TOKEN` to be set before running.
+If you want to deploy it in your Vagrant Cloud, you can use the [`ci/deploy.sh`](ci/deploy.sh). It needs the `VAGRANT_CLOUD_TOKEN` to be set before running.
 
 ``` bash
 ci/deploy.sh
