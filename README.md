@@ -1,6 +1,6 @@
 # ubuntu1804-4dev
 
-An Ubuntu 18.04 64-bit Vagrant box with desktop enabled and some development tools. It is based on the official base box [hashicorp/bionic64](https://app.vagrantup.com/hashicorp/boxes/bionic64).
+An Ubuntu 18.04 64-bit Vagrant box with desktop enabled and some development tools. It is based on the official base box [bento/ubuntu-18.04](https://app.vagrantup.com/bento/boxes/ubuntu-18.04).
 
 [![Build Status](https://travis-ci.com/felipecassiors/ubuntu1804-4dev.svg?branch=master)](https://travis-ci.com/felipecassiors/ubuntu1804-4dev)
 
@@ -67,8 +67,8 @@ vagrant package
 
 ### Deploy
 
-If you want to deploy it in your Vagrant Cloud, you can use the [`scripts/deploy.sh`](scripts/deploy.sh). It needs the `VAGRANT_CLOUD_TOKEN` to be set before running.
+If you want to deploy it in your Vagrant Cloud, you can use the [`ci/deploy.sh`](scripts/deploy.sh). It needs the `VAGRANT_CLOUD_TOKEN` to be set before running.
 
 ``` bash
-scripts/deploy.sh
+ci/deploy.sh
 ```
