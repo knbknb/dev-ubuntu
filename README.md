@@ -6,8 +6,10 @@ An Ubuntu 18.04 64-bit Vagrant box with desktop enabled and some development too
 
 ## Requisites
 
-- VirtualBox ([download here](https://www.virtualbox.org/wiki/Downloads))
-- Vagrant ([download here](https://www.vagrantup.com/downloads.html))
+- VirtualBox ([download here, v6 recommended](https://www.virtualbox.org/wiki/Downloads))- a free and open-source hosted hypervisor for x86 virtualization
+- Vagrant ([download here](https://www.vagrantup.com/downloads.html))- for building and maintaining portable virtual software development environments
+
+
 
 ## **Vagrant Cloud**
 
