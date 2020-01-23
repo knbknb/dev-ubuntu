@@ -1,6 +1,6 @@
 # ubuntu1804-4dev
 
-An Ubuntu 18.04 Vagrant box with desktop enabled and some development tools. It is based on the official base box [bento/ubuntu-18.04](https://app.vagrantup.com/bento/boxes/ubuntu-18.04). This will install a 6 GB VirtualBox version of the Ubuntu Desktop 64-bit Linux Distribution codenamed "Bionic Beaver".
+An Ubuntu 18.04 amd64 Vagrant box with GNOME desktop enabled and some development tools installed. It is based on the official base box [bento/ubuntu-18.04](https://app.vagrantup.com/bento/boxes/ubuntu-18.04). This will install a 6 GB VirtualBox version of the Ubuntu Desktop 64-bit Linux Distribution codenamed "Bionic Beaver".
 
 For a customization see my repo [my-ubuntu1804-4dev](https://github.com/knbknb/my-ubuntu1804-4dev/)
 
