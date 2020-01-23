@@ -1,24 +1,13 @@
 # ubuntu1804-4dev
 
-An Ubuntu 18.04 64-bit Vagrant box with desktop enabled and some development tools. It is based on the official base box [bento/ubuntu-18.04](https://app.vagrantup.com/bento/boxes/ubuntu-18.04).
+An Ubuntu 18.04 64-bit Vagrant box with desktop enabled and some development tools. It is based on the official base box [bento/ubuntu-18.04](https://app.vagrantup.com/bento/boxes/ubuntu-18.04). 
 
-[![Build Status](https://travis-ci.com/felipecassiors/ubuntu1804-4dev.svg?branch=master)](https://travis-ci.com/felipecassiors/ubuntu1804-4dev)
+For a customization see my repo [my-ubuntu1804-4dev](https://github.com/knbknb/my-ubuntu1804-4dev/)
 
 ## Requisites
 
 - VirtualBox ([download here, v6 recommended](https://www.virtualbox.org/wiki/Downloads))- a free and open-source hosted hypervisor for x86 virtualization
 - Vagrant ([download here](https://www.vagrantup.com/downloads.html))- for building and maintaining portable virtual software development environments
-
-
-
-## **Vagrant Cloud**
-
-This box is available on [Vagrant Cloud](https://app.vagrantup.com/felipecassiors/boxes/ubuntu1804-4dev). For using it:
-
-1. Create a new folder on your computer, like `C:\my-ubuntu1804-4dev`.
-2. Open a new terminal there and run `vagrant init felipecassiors/ubuntu1804-4dev`.
-3. Notice that a new file called `Vagrantfile` was created. In this file, you can set your options for your VM. For a good example, check my other repository: [my-ubuntu1804-4dev](https://github.com/knbknb/my-ubuntu1804-4dev).
-4. Run `vagrant up` and be happy!
 
 
 ## **Features**
@@ -30,7 +19,7 @@ This box is available on [Vagrant Cloud](https://app.vagrantup.com/felipecassior
 - Docker, Docker Compose
 - Argbash, bash-it
 - OpenJDK 8
-- Python3, - Python2
+- Python3, Python2
 - Node.js 12
 - Ruby
 - cURL
@@ -78,3 +67,11 @@ The whole process is:
 7. Try to `vagrant up` this uploaded box
 8. If the last step succeeds, release the version on Vagrant Cloud and push the tag on GitHub (if created). Else, delete the version on Vagrant Cloud and fail the build.
 
+## **Vagrant Cloud**
+
+This box is available on [Vagrant Cloud](https://app.vagrantup.com/felipecassiors/boxes/ubuntu1804-4dev). For using it:
+
+1. Create a new folder on your computer, like `C:\my-ubuntu1804-4dev`.
+2. Open a new terminal there and run `vagrant init felipecassiors/ubuntu1804-4dev`.
+3. Notice that a new file called `Vagrantfile` was created. In this file, you can set your options for your VM. For a good example, check my other repository: [my-ubuntu1804-4dev](https://github.com/knbknb/my-ubuntu1804-4dev).
+4. Run `vagrant up` and be happy!
