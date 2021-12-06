@@ -1,4 +1,6 @@
-# ubuntu1804-4dev
+# dev-ubuntu
+
+(Repository formerly known as ubuntu1804-4dev)
 
 [![Build Status](https://travis-ci.com/felipecassiors/ubuntu1804-4dev.svg?branch=master)](https://travis-ci.com/felipecassiors/ubuntu1804-4dev)
 [![Vagrant box size](https://img.shields.io/endpoint?url=https://runkit.io/felipecassiors/vagrant-box-size/branches/master/felipecassiors/ubuntu1804-4dev)](https://app.vagrantup.com/felipecassiors/boxes/ubuntu1804-4dev)
