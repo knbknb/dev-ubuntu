@@ -1,9 +1,13 @@
 # dev-ubuntu
 
-(Repository formerly known as ubuntu1804-4dev)
+(Repository formerly known as `ubuntu1804-4dev`)
 
-[![Build Status](https://travis-ci.com/felipecassiors/ubuntu1804-4dev.svg?branch=master)](https://travis-ci.com/felipecassiors/ubuntu1804-4dev)
-[![Vagrant box size](https://img.shields.io/endpoint?url=https://runkit.io/felipecassiors/vagrant-box-size/branches/master/felipecassiors/ubuntu1804-4dev)](https://app.vagrantup.com/felipecassiors/boxes/ubuntu1804-4dev)
+Forked from another repo `felipecassiors/dev-ubuntu`. For details about that repo (and its **Deprecation Notice**, check out the "dev-ubuntu" branch of this repository. `knbknb/dev-ubuntu`.
+
+
+-------
+
+## Old README 
 
 An Ubuntu 18.04 amd64 Vagrant box with GNOME desktop enabled and some development tools installed. It uses the official base box [bento/ubuntu-18.04](https://app.vagrantup.com/bento/boxes/ubuntu-18.04). 
 
