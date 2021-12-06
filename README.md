@@ -1,161 +1,84 @@
-## Deprecation notice
+# ubuntu1804-4dev
 
-I have not been using this box anymore because I prefer to use WSL2 on Windows rather than VirtualBox, so it does not make sense to me to keep maintaining it.
+[![Build Status](https://travis-ci.com/felipecassiors/ubuntu1804-4dev.svg?branch=master)](https://travis-ci.com/felipecassiors/ubuntu1804-4dev)
+[![Vagrant box size](https://img.shields.io/endpoint?url=https://runkit.io/felipecassiors/vagrant-box-size/branches/master/felipecassiors/ubuntu1804-4dev)](https://app.vagrantup.com/felipecassiors/boxes/ubuntu1804-4dev)
 
-Furthermore, I have putted much more effort on [my dotfiles](https://github.com/felipecrs/dotfiles), which contains the latest and greatest enhancements, and then I use it to bootstrap any VM with a single command. That means that for me, [my dotfiles project](https://github.com/felipecrs/dotfiles) is replacing dev-ubuntu.
+An Ubuntu 18.04 amd64 Vagrant box with GNOME desktop enabled and some development tools installed. It uses the official base box [bento/ubuntu-18.04](https://app.vagrantup.com/bento/boxes/ubuntu-18.04). 
 
-If this project worked well for you and you would like to keep using it (instead of moving to some dotfiles-like approach), I would suggest you to fork this repository and setup your own.
+This will install a custom VirtualBox version of the Ubuntu Desktop 64-bit Linux Distribution codenamed "Bionic Beaver".
 
-Ephemeral development environments such as Gitpod and GitHub Codespaces has never been so popular, and that is another reason why not to use a heavy VM.
+For a customization see my repo [my-ubuntu1804-4dev](https://github.com/knbknb/my-ubuntu1804-4dev/)
 
-The latest version of this box will still be available in Vagrant Cloud to download, but no more versions will be published, including the periodic builds. Older versions were deleted to due to space saving.
+## Requisites
 
-# **Dev Ubuntu** <!-- omit in toc -->
+- VirtualBox ([download here, v6 recommended](https://www.virtualbox.org/wiki/Downloads))- a free and open-source hosted hypervisor for x86 virtualization
+- Vagrant ([download here](https://www.vagrantup.com/downloads.html))- for building and maintaining portable virtual software development environments
 
-## A Vagrant box with desktop, tools, and adjustments for developers <!-- omit in toc -->
+- Disk space: You need enough free space on your hard disk or network drive where you want to store the image. The Vagrant software will download a 3.5 GB Ubuntu image from the Vagrant Cloud, and cache it in directory `$HOME/.vagrant.d/boxes/`, and it will create a working copy from that image (so you need at least 2 * 3.5 = 7 GB)
+- Network resources: Enough network bandwidth and enough download capacity remaining (if you are on a mobile plan)
 
-[![Gitpod Ready-to-Code](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/felipecrs/dev-ubuntu)
-[![Build Status](https://travis-ci.com/felipecrs/dev-ubuntu.svg?branch=master)](https://travis-ci.com/felipecrs/dev-ubuntu)
-[![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
-[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
-[![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
-[![Vagrant box size](https://img.shields.io/endpoint?url=https://runkit.io/felipecassiors/vagrant-box-size/6.0.0/felipecrs/dev-ubuntu)](https://app.vagrantup.com/felipecrs/boxes/dev-ubuntu)
-
-This box is based on [`peru/ubuntu-20.04-desktop-amd64`](https://app.vagrantup.com/peru/boxes/ubuntu-20.04-desktop-amd64), which is a vagrant box for Ubuntu 20.04 Desktop.
-
-- [**What this box have**](#what-this-box-have)
-- [**Get started**](#get-started)
-  - [**Requisites**](#requisites)
-  - [**Creating a VM from this box**](#creating-a-vm-from-this-box)
-  - [**Updating to a newer version**](#updating-to-a-newer-version)
-- [**Technical details**](#technical-details)
-  - [**Automated Build**](#automated-build)
-  - [**Build from source**](#build-from-source)
-
-## **What this box have**
+## **Features**
 
 - Visual Studio Code
-- Google Chrome
+- Google Chrome, Firefox
 - Postman
 - Git
-- Docker
-- Docker Compose
-- Argbash
+- Docker, Docker Compose
+- Argbash, bash-it
 - OpenJDK 8
-- Python 3
+- Python3, Python2
 - Node.js 12
 - Ruby
 - cURL
 - jq
-And probably more
+- 
+- Latest VirtualBox Guest Additions
 
-## **Get started**
+### Build it manually
 
-### **Requisites**
+Clone the repository, start a new terminal there, and run:
 
-For running this box, you need to have the following tools:
+``` bash
+vagrant up
+```
 
-- VirtualBox ([download here](https://www.virtualbox.org/wiki/Downloads))
-- Vagrant ([download here](https://www.vagrantup.com/downloads.html))
 
-> 💡 **Pro tip**
->
-> On Windows, you can install both at once with [Chocolatey](https://chocolatey.org/install) with
->
-> ```powershell
-> choco install virtualbox vagrant
-> ```
+### Package and Deploy to Vagrant-Cloud
 
-### **Creating a VM from this box**
 
-This box is available on [Vagrant Cloud](https://app.vagrantup.com/felipecrs/boxes/dev-ubuntu). For using it:
+After the provision is done, you can turn the VM into a box:
 
-1. Create a new folder on your computer, like:
+``` bash
+vagrant package
+```
 
-   ```bash
-   mkdir ~/my-dev-ubuntu
-   ```
+If you want to deploy it in your Vagrant Cloud, you can use the [`ci/deploy.sh`](ci/deploy.sh). It needs the `VAGRANT_CLOUD_TOKEN` to be set before running.
 
-2. Open a new terminal there and run:
+``` bash
+ci/deploy.sh
+```
 
-    ```bash
-    vagrant init felipecrs/dev-ubuntu
-    ```
-
-3. Notice that a new file called `Vagrantfile` was created. In this file, you can set your personal options for your VM. For a good example, check my own `Vagrantfile` at [my-dev-ubuntu](https://github.com/felipecrs/my-dev-ubuntu). There you can find snippets for changing the **keyboard layout**, **timezone** and more.
-
-4. Run the VM and be happy!
-
-   ```bash
-   vagrant up
-   ```
-
-### **Updating to a newer version**
-
-This box is often updated. If you already a VM created from an older version, to update it you have to perform the following steps:
-
-1. Delete the VM, and this will wipe its data, so be sure you didn't left anything important there.
-
-    ```bash
-    vagrant destroy
-    ```
-
-2. Download the new box with:
-
-    ```bash
-    vagrant box update
-    ```
-
-## **Technical details**
-
-The rest of this documentation covers technical details about how this project works.
 
 ### **Automated Build**
 
-This box is automatically built by [Travis](https://travis-ci.com/felipecrs/dev-ubuntu). Every new commit triggers a new build. We use [`semantic-release`](https://github.com/semantic-release/semantic-release) to determine whether we need to release a new version or not. The loop also tests the new deployed box before releasing it by running `vagrant up` on that version. If it fails, it doesn't release the version and deletes it. For more details check the [`.travis.yml`](.travis.yml) and also the [`ci/deploy.sh`](ci/deploy.sh).
+This box is automatically built by [Travis](https://travis-ci.com). Every new commit triggers a new build. He bumps the version and pushes a new tag on the repository, as long as it also releases a new version on Vagrant Cloud. The loop also tests the new deployed box before releasing it by running `vagrant up` of that version. If it fails, it doesn't release the version and deletes it. For more details check the [`.travis.yml`](.travis.yml) and also the [scripts/deploy.sh](scripts/deploy.sh).
 
 The whole process is:
 
-1. Checkout the repository
-2. Install the dependencies (VirtualBox and Vagrant)
+1. Check out the repository
+2. Install the dependencies (VirtualBox and Vagrant for example)
 3. `vagrant up`
 4. `vagrant package`
-5. Run `semantic-release` to determine whether the build should be released or not and generate the release notes
+5. Bumps the version and create a new tag if not running upon a tagged commit
 6. Create a new version and upload the box to the Vagrant Cloud
-7. Test the deployed box by trying to run a `vagrant up` of it
-8. If the last step succeeds, release the version on [Vagrant Cloud](https://app.vagrantup.com/felipecrs/boxes/dev-ubuntu), commit the [CHANGELOG](CHANGELOG.md) and create a [GitHub Release](https://github.com/felipecrs/dev-ubuntu/releases).
+7. Try to `vagrant up` this uploaded box
+8. If the last step succeeds, release the version on Vagrant Cloud and push the tag on GitHub (if created). Else, delete the version on Vagrant Cloud and fail the build.
 
-### **Build from source**
+## **Vagrant Cloud**
 
-You can also build the box from source with the following steps:
+This box is available on [Vagrant Cloud](https://app.vagrantup.com/felipecassiors/boxes/ubuntu1804-4dev). For using it:
 
-1. Clone the repository, start a new terminal there, and run:
-
-    ```bash
-    vagrant up
-    ```
-
-2. After the provision is done, you can turn the VM into a box with:
-
-    ```bash
-    vagrant package --vagrantfile src/Vagrantfile
-    ```
-
-3. Then, you can add this generated box to your local boxes catalog with:
-
-   ```bash
-   vagrant box add package.box dev-ubuntu
-   ```
-
-4. And then you can perform the steps from [**Creating a VM from this box**](#creating-a-vm-from-this-box) as usual, such as:
-
-   ```bash
-   mkdir ~/my-dev-ubuntu
-   cd ~/my-dev-ubuntu
-   vagrant init dev-ubuntu
-   vagrant up
-   ```
-
-> 💡 **Pro tip**
->
-> You can also use the [`test_local.sh`](test_local.sh) script which performs all these previous steps automatically.
+1. Create a new folder on your computer, like `C:\my-ubuntu1804-4dev`.
+2. Open a new terminal there and run `vagrant init felipecassiors/ubuntu1804-4dev`.
+3. Notice that a new file called `Vagrantfile` was created. In this file, you can set your options for your VM. For a good example, check my other repository: [my-ubuntu1804-4dev](https://github.com/knbknb/my-ubuntu1804-4dev).
+4. Run `vagrant up` and be happy!
